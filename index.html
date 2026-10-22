@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>United International University - Result Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LAYER 1: WELCOME SCREEN -->
+    <div id="layer-welcome" class="layer active-layer">
+        <div class="welcome-overlay"></div>
+        <div class="welcome-card">
+            <img src="uiulogo2.png" alt="UIU Logo" class="portal-logo">
+            <h1>UNITED INTERNATIONAL UNIVERSITY</h1>
+            <p class="subtitle">Student Academic Result Portal</p>
+            <div class="divider"></div>
+            <p class="welcome-msg">Welcome to the official result verification system. Access your trimester grades and detailed assessment marksheets online.</p>
+            <button class="btn btn-primary" onclick="showLayer('layer-login')">Enter Portal</button>
+        </div>
+    </div>
+
+    <!-- LAYER 2: LOGIN / SEARCH SCREEN -->
+    <div id="layer-login" class="layer">
+        <div class="header-bar">
+            <img src="uiulogo2.png" alt="UIU Logo" class="header-logo">
+            <span>United International University</span>
+        </div>
+
+        <div class="container">
+            <div class="card login-card">
+                <h2>Student Login</h2>
+                <p class="card-subtitle">Please enter your credentials to view your result</p>
+
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="studentId">Student ID</label>
+                        <input type="text" id="studentId" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentPassword">Password</label>
+                        <input type="password" id="studentPassword" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trimester">Select Trimester</label>
+                        <select id="trimester" required>
+                            <option value="">-- Select Trimester --</option>
+                            <option value="Spring 2026">Spring 2026</option>
+                            <option value="Summer 2026">Summer 2026</option>
+                            <option value="Fall 2026">Fall 2026</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Submit & View Result</button>
+                    <button type="button" class="btn btn-secondary btn-block" onclick="showLayer('layer-welcome')">Back to Home</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- LAYER 3: DETAILED RESULT SHEET -->
+    <div id="layer-result" class="layer">
+        <div class="header-bar no-print">
+            <img src="uiulogo2.png" alt="UIU Logo" class="header-logo">
+            <span>United International University - Academic Marksheet</span>
+        </div>
+
+        <div class="container print-container">
+            <!-- Official Header -->
+            <div class="result-header">
+                <img src="uiulogo2.png" alt="UIU Logo" class="result-logo">
+                <h2>UNITED INTERNATIONAL UNIVERSITY</h2>
+                <p class="dept-title">Office of the Controller of Examinations</p>
+                <p class="sheet-title">DETAILED ASSESSMENT MARKSHEET</p>
+            </div>
+
+            <!-- Student Detailed Info Grid from ID Card -->
+            <div class="student-info-grid">
+                <div><strong>Student Name:</strong> <span id="res-name">ABDULLAH AL MAHMUD</span></div>
+                <div><strong>Student ID:</strong> <span id="res-id">0112620053</span></div>
+                <div><strong>Program:</strong> <span id="res-prog">BSCSE</span></div>
+                <div><strong>Date of Birth:</strong> <span id="res-dob">26-Jun-2006</span></div>
+                <div><strong>Nationality:</strong> <span id="res-nation">Bangladeshi</span></div>
+                <div><strong>Blood Group:</strong> <span id="res-blood">B+</span></div>
+                <div><strong>Trimester:</strong> <span id="res-trimester">Spring 2026</span></div>
+                <div><strong>Validity:</strong> <span id="res-valid">2026-2030</span></div>
+            </div>
+
+            <!-- Course Evaluation Breakdown Container -->
+            <div id="courses-container">
+                <!-- Dynamic Course Cards inserted here -->
+            </div>
+
+            <!-- Summary Box -->
+            <div class="summary-box">
+                <h3>Total CGPA: <span id="res-cgpa">3.22</span></h3>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons no-print">
+                <button class="btn btn-success" onclick="window.print()">🖨️ Print Result Sheet</button>
+                <button class="btn btn-secondary" onclick="showLayer('layer-login')">Search Another Result</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Credentials & Logic -->
+    <script>
+        const studentDatabase = {
+            "0112620053": {
+                password: "abdullah.1234",
+                name: "ABDULLAH AL MAHMUD",
+                program: "BSCSE",
+                dob: "26-Jun-2006",
+                nationality: "Bangladeshi",
+                bloodGroup: "B+",
+                validity: "2026-2030",
+                trimesters: {
+                    "Spring 2026": {
+                        cgpa: "3.22",
+                        courses: [
+                            {
+                                name: "English I",
+                                classPerf: "16/20",
+                                attendance: "5/5",
+                                viva: "-",
+                                assignment: "13.5/15",
+                                midterm: "18/30",
+                                finalMarks: "25/30",
+                                total: "78/100",
+                                gpa: "3.00"
+                            },
+                            {
+                                name: "BDS 1201",
+                                classPerf: "17/20",
+                                attendance: "5/5",
+                                viva: "-",
+                                assignment: "13.5/15",
+                                midterm: "23/30",
+                                finalMarks: "26/30",
+                                total: "85/100",
+                                gpa: "3.33"
+                            },
+                            {
+                                name: "ICS",
+                                classPerf: "24/30",
+                                attendance: "5/5",
+                                viva: "7.5",
+                                assignment: "14/15",
+                                midterm: "17/20",
+                                finalMarks: "14/20",
+                                total: "82/100",
+                                gpa: "3.33"
+                            }
+                        ]
+                    },
+                    "Summer 2026": {
+                        cgpa: "3.50",
+                        courses: [
+                            {
+                                name: "Data Structures",
+                                classPerf: "18/20",
+                                attendance: "5/5",
+                                viva: "8/10",
+                                assignment: "14/15",
+                                midterm: "24/30",
+                                finalMarks: "27/30",
+                                total: "88/100",
+                                gpa: "3.67"
+                            },
+                            {
+                                name: "Object Oriented Programming",
+                                classPerf: "19/20",
+                                attendance: "5/5",
+                                viva: "-",
+                                assignment: "15/15",
+                                midterm: "25/30",
+                                finalMarks: "28/30",
+                                total: "92/100",
+                                gpa: "4.00"
+                            }
+                        ]
+                    }
+                }
+            }
+        };
+
+        function showLayer(layerId) {
+            document.querySelectorAll('.layer').forEach(layer => {
+                layer.classList.remove('active-layer');
+            });
+            document.getElementById(layerId).classList.add('active-layer');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const inputId = document.getElementById('studentId').value.trim();
+            const inputPassword = document.getElementById('studentPassword').value.trim();
+            const inputTrimester = document.getElementById('trimester').value;
+
+            const student = studentDatabase[inputId];
+
+            if (!student) {
+                alert("Invalid Student ID! Please enter: 0112620053");
+                return;
+            }
+
+            if (student.password !== inputPassword) {
+                alert("Incorrect password! Hint: abdullah.1234");
+                return;
+            }
+
+            const trimesterData = student.trimesters[inputTrimester];
+            if (!trimesterData) {
+                alert("No result record found for " + inputTrimester + ".");
+                return;
+            }
+
+            document.getElementById('res-name').textContent = student.name;
+            document.getElementById('res-id').textContent = inputId;
+            document.getElementById('res-prog').textContent = student.program;
+            document.getElementById('res-dob').textContent = student.dob;
+            document.getElementById('res-nation').textContent = student.nationality;
+            document.getElementById('res-blood').textContent = student.bloodGroup;
+            document.getElementById('res-valid').textContent = student.validity;
+            document.getElementById('res-trimester').textContent = inputTrimester;
+            document.getElementById('res-cgpa').textContent = trimesterData.cgpa;
+
+            const container = document.getElementById('courses-container');
+            container.innerHTML = "";
+
+            trimesterData.courses.forEach(course => {
+                const cardHTML = `
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h4>${course.name}</h4>
+                            <span class="course-gpa">GPA: ${course.gpa}</span>
+                        </div>
+                        <table class="marks-table">
+                            <thead>
+                                <tr>
+                                    <th>Class Performance</th>
+                                    <th>Attendance</th>
+                                    ${course.viva !== '-' ? '<th>Viva</th>' : ''}
+                                    <th>Assignment / Presentation</th>
+                                    <th>Mid Term</th>
+                                    <th>Final</th>
+                                    <th>Total Marks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>${course.classPerf}</td>
+                                    <td>${course.attendance}</td>
+                                    ${course.viva !== '-' ? `<td>${course.viva}</td>` : ''}
+                                    <td>${course.assignment}</td>
+                                    <td>${course.midterm}</td>
+                                    <td>${course.finalMarks}</td>
+                                    <td><strong>${course.total}</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            showLayer('layer-result');
+        }
+    </script>
+</body>
+</html>
