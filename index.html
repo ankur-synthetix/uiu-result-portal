@@ -41,7 +41,7 @@
 
                     <div class="form-group">
                         <label for="studentPassword">Password</label>
-                        <input type="password" id="studentPassword" placeholder="Enter your password" required>
+                        <input type="password" id="studentPassword" required>
                     </div>
 
                     <div class="form-group">
@@ -50,7 +50,6 @@
                             <option value="">-- Select Trimester --</option>
                             <option value="Spring 2026">Spring 2026</option>
                             <option value="Summer 2026">Summer 2026</option>
-                            <option value="Fall 2026">Fall 2026</option>
                         </select>
                     </div>
 
@@ -77,7 +76,7 @@
                 <p class="sheet-title">DETAILED ASSESSMENT MARKSHEET</p>
             </div>
 
-            <!-- Student Detailed Info Grid from ID Card -->
+            <!-- SECTION 1: Student Information -->
             <div class="student-info-grid">
                 <div><strong>Student Name:</strong> <span id="res-name">ABDULLAH AL MAHMUD</span></div>
                 <div><strong>Student ID:</strong> <span id="res-id">0112620053</span></div>
@@ -89,12 +88,50 @@
                 <div><strong>Validity:</strong> <span id="res-valid">2026-2030</span></div>
             </div>
 
-            <!-- Course Evaluation Breakdown Container -->
-            <div id="courses-container">
-                <!-- Dynamic Course Cards inserted here -->
+            <!-- SECTION 2: English I -->
+            <div class="course-list-card">
+                <div class="course-title">English I</div>
+                <div class="marks-list">
+                    <div class="marks-item"><span class="label">Class performance</span><span class="value">16/20</span></div>
+                    <div class="marks-item"><span class="label">Attendance</span><span class="value">5/5</span></div>
+                    <div class="marks-item"><span class="label">Assignment/presentation</span><span class="value">13.5/15</span></div>
+                    <div class="marks-item"><span class="label">Mid term</span><span class="value">18/30</span></div>
+                    <div class="marks-item"><span class="label">Final</span><span class="value">25/30</span></div>
+                    <div class="marks-item"><span class="label">Total</span><span class="value">78/100</span></div>
+                    <div class="marks-item highlight-gpa"><span class="label">Gpa</span><span class="value">3.00</span></div>
+                </div>
             </div>
 
-            <!-- Summary Box -->
+            <!-- SECTION 3: BDS 1201 -->
+            <div class="course-list-card">
+                <div class="course-title">BDS 1201</div>
+                <div class="marks-list">
+                    <div class="marks-item"><span class="label">Class performance</span><span class="value">17/20</span></div>
+                    <div class="marks-item"><span class="label">Attendance</span><span class="value">5/5</span></div>
+                    <div class="marks-item"><span class="label">Assignment/presentation</span><span class="value">13.5 /15</span></div>
+                    <div class="marks-item"><span class="label">Mid term</span><span class="value">23/30</span></div>
+                    <div class="marks-item"><span class="label">Final</span><span class="value">26/30</span></div>
+                    <div class="marks-item"><span class="label">Total</span><span class="value">85/100</span></div>
+                    <div class="marks-item highlight-gpa"><span class="label">Gpa</span><span class="value">3.33</span></div>
+                </div>
+            </div>
+
+            <!-- SECTION 4: ICS -->
+            <div class="course-list-card">
+                <div class="course-title">ICS</div>
+                <div class="marks-list">
+                    <div class="marks-item"><span class="label">Class performance</span><span class="value">24/30</span></div>
+                    <div class="marks-item"><span class="label">Attendance</span><span class="value">5/5</span></div>
+                    <div class="marks-item"><span class="label">Viva</span><span class="value">7.5</span></div>
+                    <div class="marks-item"><span class="label">Assignment/presentation</span><span class="value">14/15</span></div>
+                    <div class="marks-item"><span class="label">Mid term</span><span class="value">17/20</span></div>
+                    <div class="marks-item"><span class="label">Final</span><span class="value">14/20</span></div>
+                    <div class="marks-item"><span class="label">Total</span><span class="value">82/100</span></div>
+                    <div class="marks-item highlight-gpa"><span class="label">Gpa</span><span class="value">3.33</span></div>
+                </div>
+            </div>
+
+            <!-- Overall CGPA Box -->
             <div class="summary-box">
                 <h3>Total CGPA: <span id="res-cgpa">3.22</span></h3>
             </div>
@@ -102,172 +139,39 @@
             <!-- Action Buttons -->
             <div class="action-buttons no-print">
                 <button class="btn btn-success" onclick="window.print()">🖨️ Print Result Sheet</button>
-                <button class="btn btn-secondary" onclick="showLayer('layer-login')">Search Another Result</button>
+                <button class="btn btn-secondary" onclick="showLayer('layer-login')">Back to Login</button>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript Credentials & Logic -->
+    <!-- JavaScript Layer Control & Auth -->
     <script>
-        const studentDatabase = {
-            "0112620053": {
-                password: "abdullah.1234",
-                name: "ABDULLAH AL MAHMUD",
-                program: "BSCSE",
-                dob: "26-Jun-2006",
-                nationality: "Bangladeshi",
-                bloodGroup: "B+",
-                validity: "2026-2030",
-                trimesters: {
-                    "Spring 2026": {
-                        cgpa: "3.22",
-                        courses: [
-                            {
-                                name: "English I",
-                                classPerf: "16/20",
-                                attendance: "5/5",
-                                viva: "-",
-                                assignment: "13.5/15",
-                                midterm: "18/30",
-                                finalMarks: "25/30",
-                                total: "78/100",
-                                gpa: "3.00"
-                            },
-                            {
-                                name: "BDS 1201",
-                                classPerf: "17/20",
-                                attendance: "5/5",
-                                viva: "-",
-                                assignment: "13.5/15",
-                                midterm: "23/30",
-                                finalMarks: "26/30",
-                                total: "85/100",
-                                gpa: "3.33"
-                            },
-                            {
-                                name: "ICS",
-                                classPerf: "24/30",
-                                attendance: "5/5",
-                                viva: "7.5",
-                                assignment: "14/15",
-                                midterm: "17/20",
-                                finalMarks: "14/20",
-                                total: "82/100",
-                                gpa: "3.33"
-                            }
-                        ]
-                    },
-                    "Summer 2026": {
-                        cgpa: "3.50",
-                        courses: [
-                            {
-                                name: "Data Structures",
-                                classPerf: "18/20",
-                                attendance: "5/5",
-                                viva: "8/10",
-                                assignment: "14/15",
-                                midterm: "24/30",
-                                finalMarks: "27/30",
-                                total: "88/100",
-                                gpa: "3.67"
-                            },
-                            {
-                                name: "Object Oriented Programming",
-                                classPerf: "19/20",
-                                attendance: "5/5",
-                                viva: "-",
-                                assignment: "15/15",
-                                midterm: "25/30",
-                                finalMarks: "28/30",
-                                total: "92/100",
-                                gpa: "4.00"
-                            }
-                        ]
-                    }
-                }
-            }
-        };
-
         function showLayer(layerId) {
-            document.querySelectorAll('.layer').forEach(layer => {
-                layer.classList.remove('active-layer');
-            });
+            var layers = document.querySelectorAll('.layer');
+            for (var i = 0; i < layers.length; i++) {
+                layers[i].classList.remove('active-layer');
+            }
             document.getElementById(layerId).classList.add('active-layer');
+            window.scrollTo(0, 0);
         }
 
         function handleLogin(event) {
             event.preventDefault();
-            const inputId = document.getElementById('studentId').value.trim();
-            const inputPassword = document.getElementById('studentPassword').value.trim();
-            const inputTrimester = document.getElementById('trimester').value;
+            var inputId = document.getElementById('studentId').value.trim();
+            var inputPassword = document.getElementById('studentPassword').value.trim();
+            var inputTrimester = document.getElementById('trimester').value;
 
-            const student = studentDatabase[inputId];
-
-            if (!student) {
-                alert("Invalid Student ID! Please enter: 0112620053");
+            if (inputId !== "0112620053" || inputPassword !== "abdullah.1234") {
+                alert("Invalid credentials! Use ID: 0112620053, Password: abdullah.1234");
                 return;
             }
 
-            if (student.password !== inputPassword) {
-                alert("Incorrect password! Hint: abdullah.1234");
+            if (!inputTrimester) {
+                alert("Please select a trimester.");
                 return;
             }
 
-            const trimesterData = student.trimesters[inputTrimester];
-            if (!trimesterData) {
-                alert("No result record found for " + inputTrimester + ".");
-                return;
-            }
-
-            document.getElementById('res-name').textContent = student.name;
-            document.getElementById('res-id').textContent = inputId;
-            document.getElementById('res-prog').textContent = student.program;
-            document.getElementById('res-dob').textContent = student.dob;
-            document.getElementById('res-nation').textContent = student.nationality;
-            document.getElementById('res-blood').textContent = student.bloodGroup;
-            document.getElementById('res-valid').textContent = student.validity;
             document.getElementById('res-trimester').textContent = inputTrimester;
-            document.getElementById('res-cgpa').textContent = trimesterData.cgpa;
-
-            const container = document.getElementById('courses-container');
-            container.innerHTML = "";
-
-            trimesterData.courses.forEach(course => {
-                const cardHTML = `
-                    <div class="course-card">
-                        <div class="course-header">
-                            <h4>${course.name}</h4>
-                            <span class="course-gpa">GPA: ${course.gpa}</span>
-                        </div>
-                        <table class="marks-table">
-                            <thead>
-                                <tr>
-                                    <th>Class Performance</th>
-                                    <th>Attendance</th>
-                                    ${course.viva !== '-' ? '<th>Viva</th>' : ''}
-                                    <th>Assignment / Presentation</th>
-                                    <th>Mid Term</th>
-                                    <th>Final</th>
-                                    <th>Total Marks</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>${course.classPerf}</td>
-                                    <td>${course.attendance}</td>
-                                    ${course.viva !== '-' ? `<td>${course.viva}</td>` : ''}
-                                    <td>${course.assignment}</td>
-                                    <td>${course.midterm}</td>
-                                    <td>${course.finalMarks}</td>
-                                    <td><strong>${course.total}</strong></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                `;
-                container.innerHTML += cardHTML;
-            });
-
             showLayer('layer-result');
         }
     </script>
