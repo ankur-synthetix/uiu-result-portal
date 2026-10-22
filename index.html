@@ -1,179 +1,383 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>United International University - Result Portal</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#123b32">
+  <title>Student Academic Portal | Demo</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- LAYER 1: WELCOME SCREEN -->
-    <div id="layer-welcome" class="layer active-layer">
-        <div class="welcome-overlay"></div>
-        <div class="welcome-card">
-            <img src="uiulogo2.png" alt="UIU Logo" class="portal-logo">
-            <h1>UNITED INTERNATIONAL UNIVERSITY</h1>
-            <p class="subtitle">Student Academic Result Portal</p>
-            <div class="divider"></div>
-            <p class="welcome-msg">Welcome to the official result verification system. Access your trimester grades and detailed assessment marksheets online.</p>
-            <button class="btn btn-primary" onclick="showLayer('layer-login')">Enter Portal</button>
+  <div class="demo-banner">
+    DEMONSTRATION PORTAL · NOT AN OFFICIAL UNIVERSITY RECORD
+  </div>
+
+  <div class="app-layout">
+
+    <aside class="sidebar">
+      <a class="brand" href="#overview">
+        <img src="uiulogo2.png" alt="University logo"
+             onerror="this.style.display='none'">
+        <span>
+          <strong>Student Portal</strong>
+          <small>Academic Dashboard</small>
+        </span>
+      </a>
+
+      <div class="sidebar-label">WORKSPACE</div>
+
+      <nav class="side-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#overview">
+          <span class="nav-icon">▦</span> Overview
+        </a>
+        <a class="nav-link" href="#profile">
+          <span class="nav-icon">♙</span> Student Profile
+        </a>
+        <a class="nav-link" href="#results">
+          <span class="nav-icon">▤</span> Course Results
+        </a>
+        <a class="nav-link" href="#cgpa">
+          <span class="nav-icon">◷</span> Academic Standing
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="mini-profile">
+          <div class="avatar small-avatar">AM</div>
+          <div>
+            <strong>Abdullah Al Mahmud</strong>
+            <small>ID: 0112620053</small>
+          </div>
         </div>
-    </div>
+        <div class="demo-note">
+          <span class="status-dot"></span>
+          Demo profile active
+        </div>
+      </div>
+    </aside>
 
-    <!-- LAYER 2: LOGIN / SEARCH SCREEN -->
-    <div id="layer-login" class="layer">
-        <div class="header-bar">
-            <img src="uiulogo2.png" alt="UIU Logo" class="header-logo">
-            <span>United International University</span>
+    <main class="main-content">
+
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">STUDENT WORKSPACE</p>
+          <h1>Academic Dashboard</h1>
+        </div>
+        <button class="print-button" onclick="window.print()">
+          <span aria-hidden="true">⤓</span> Print / Save PDF
+        </button>
+      </header>
+
+      <section class="welcome-panel" id="overview">
+        <div class="welcome-content">
+          <span class="welcome-tag">STUDENT OVERVIEW</span>
+          <h2>Welcome back, Abdullah!</h2>
+          <p>Review your profile, course assessments, and academic performance in one place.</p>
+          <a class="welcome-link" href="#results">View course results <span>→</span></a>
+        </div>
+        <div class="welcome-decoration" aria-hidden="true">A</div>
+        <div class="welcome-status">
+          <span class="status-dot"></span>
+          DEMO PROFILE
+        </div>
+      </section>
+
+      <section class="section-block" id="profile">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">PERSONAL INFORMATION</p>
+            <h2>Student Profile</h2>
+          </div>
+          <span class="pill">Sample profile</span>
         </div>
 
-        <div class="container">
-            <div class="card login-card">
-                <h2>Student Login</h2>
-                <p class="card-subtitle">Please enter your credentials to view your result</p>
-
-                <form id="loginForm" onsubmit="handleLogin(event)">
-                    <div class="form-group">
-                        <label for="studentId">Student ID</label>
-                        <input type="text" id="studentId" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="studentPassword">Password</label>
-                        <input type="password" id="studentPassword" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="trimester">Select Trimester</label>
-                        <select id="trimester" required>
-                            <option value="">-- Select Trimester --</option>
-                            <option value="Spring 2026">Spring 2026</option>
-                            <option value="Summer 2026">Summer 2026</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-block">Submit & View Result</button>
-                    <button type="button" class="btn btn-secondary btn-block" onclick="showLayer('layer-welcome')">Back to Home</button>
-                </form>
+        <div class="profile-card">
+          <div class="profile-main">
+            <div class="avatar profile-avatar">AM</div>
+            <div>
+              <h3>Abdullah Al Mahmud</h3>
+              <p class="muted">Student ID: 0112620053</p>
+              <span class="program-tag">BSCCE · Undergraduate</span>
             </div>
+          </div>
+
+          <div class="details-grid">
+            <div class="detail">
+              <span>Student ID</span>
+              <strong>0112620053</strong>
+            </div>
+            <div class="detail">
+              <span>Academic Program</span>
+              <strong>BSCCE</strong>
+            </div>
+            <div class="detail">
+              <span>Date of Birth</span>
+              <strong>26 June 2006</strong>
+            </div>
+            <div class="detail">
+              <span>Nationality</span>
+              <strong>Bangladeshi</strong>
+            </div>
+            <div class="detail">
+              <span>Blood Group</span>
+              <strong>B+</strong>
+            </div>
+            <div class="detail">
+              <span>ID Validity</span>
+              <strong>2026–2030</strong>
+            </div>
+          </div>
         </div>
-    </div>
+      </section>
 
-    <!-- LAYER 3: DETAILED RESULT SHEET -->
-    <div id="layer-result" class="layer">
-        <div class="header-bar no-print">
-            <img src="uiulogo2.png" alt="UIU Logo" class="header-logo">
-            <span>United International University - Academic Marksheet</span>
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">AT A GLANCE</p>
+            <h2>Academic Summary</h2>
+          </div>
+          <span class="muted small-text">Demo data</span>
         </div>
 
-        <div class="container print-container">
-            <!-- Official Header -->
-            <div class="result-header">
-                <img src="uiulogo2.png" alt="UIU Logo" class="result-logo">
-                <h2>UNITED INTERNATIONAL UNIVERSITY</h2>
-                <p class="dept-title">Office of the Controller of Examinations</p>
-                <p class="sheet-title">DETAILED ASSESSMENT MARKSHEET</p>
+        <div class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-top">
+              <span class="stat-icon green">▤</span>
+              <span class="stat-caption">COURSE LOAD</span>
             </div>
+            <div class="stat-value">03</div>
+            <p class="stat-title">Courses listed</p>
+            <div class="stat-footer">English I, BDS 1201, ICS</div>
+          </article>
 
-            <!-- SECTION 1: Student Information -->
-            <div class="student-info-grid">
-                <div><strong>Student Name:</strong> <span id="res-name">ABDULLAH AL MAHMUD</span></div>
-                <div><strong>Student ID:</strong> <span id="res-id">0112620053</span></div>
-                <div><strong>Program:</strong> <span id="res-prog">BSCSE</span></div>
-                <div><strong>Date of Birth:</strong> <span id="res-dob">26-Jun-2006</span></div>
-                <div><strong>Nationality:</strong> <span id="res-nation">Bangladeshi</span></div>
-                <div><strong>Blood Group:</strong> <span id="res-blood">B+</span></div>
-                <div><strong>Trimester:</strong> <span id="res-trimester">Spring 2026</span></div>
-                <div><strong>Validity:</strong> <span id="res-valid">2026-2030</span></div>
+          <article class="stat-card">
+            <div class="stat-top">
+              <span class="stat-icon gold">◈</span>
+              <span class="stat-caption">REPORTED RESULT</span>
             </div>
+            <div class="stat-value">3.22<span class="out-of"> / 4.00</span></div>
+            <p class="stat-title">Reported CGPA</p>
+            <div class="stat-footer">Transcribed demo value</div>
+          </article>
 
-            <!-- SECTION 2: English I -->
-            <div class="course-list-card">
-                <div class="course-title">English I</div>
-                <div class="marks-list">
-                    <div class="marks-item"><span class="label">Class performance</span><span class="value">16/20</span></div>
-                    <div class="marks-item"><span class="label">Attendance</span><span class="value">5/5</span></div>
-                    <div class="marks-item"><span class="label">Assignment/presentation</span><span class="value">13.5/15</span></div>
-                    <div class="marks-item"><span class="label">Mid term</span><span class="value">18/30</span></div>
-                    <div class="marks-item"><span class="label">Final</span><span class="value">25/30</span></div>
-                    <div class="marks-item"><span class="label">Total</span><span class="value">78/100</span></div>
-                    <div class="marks-item highlight-gpa"><span class="label">Gpa</span><span class="value">3.00</span></div>
-                </div>
+          <article class="stat-card">
+            <div class="stat-top">
+              <span class="stat-icon blue">▥</span>
+              <span class="stat-caption">COURSE TOTALS</span>
             </div>
+            <div class="stat-value">245<span class="out-of"> / 300</span></div>
+            <p class="stat-title">Combined marks</p>
+            <div class="stat-footer">Based on displayed totals</div>
+          </article>
 
-            <!-- SECTION 3: BDS 1201 -->
-            <div class="course-list-card">
-                <div class="course-title">BDS 1201</div>
-                <div class="marks-list">
-                    <div class="marks-item"><span class="label">Class performance</span><span class="value">17/20</span></div>
-                    <div class="marks-item"><span class="label">Attendance</span><span class="value">5/5</span></div>
-                    <div class="marks-item"><span class="label">Assignment/presentation</span><span class="value">13.5 /15</span></div>
-                    <div class="marks-item"><span class="label">Mid term</span><span class="value">23/30</span></div>
-                    <div class="marks-item"><span class="label">Final</span><span class="value">26/30</span></div>
-                    <div class="marks-item"><span class="label">Total</span><span class="value">85/100</span></div>
-                    <div class="marks-item highlight-gpa"><span class="label">Gpa</span><span class="value">3.33</span></div>
-                </div>
+          <article class="stat-card">
+            <div class="stat-top">
+              <span class="stat-icon purple">↗</span>
+              <span class="stat-caption">HIGHEST SCORE</span>
             </div>
-
-            <!-- SECTION 4: ICS -->
-            <div class="course-list-card">
-                <div class="course-title">ICS</div>
-                <div class="marks-list">
-                    <div class="marks-item"><span class="label">Class performance</span><span class="value">24/30</span></div>
-                    <div class="marks-item"><span class="label">Attendance</span><span class="value">5/5</span></div>
-                    <div class="marks-item"><span class="label">Viva</span><span class="value">7.5</span></div>
-                    <div class="marks-item"><span class="label">Assignment/presentation</span><span class="value">14/15</span></div>
-                    <div class="marks-item"><span class="label">Mid term</span><span class="value">17/20</span></div>
-                    <div class="marks-item"><span class="label">Final</span><span class="value">14/20</span></div>
-                    <div class="marks-item"><span class="label">Total</span><span class="value">82/100</span></div>
-                    <div class="marks-item highlight-gpa"><span class="label">Gpa</span><span class="value">3.33</span></div>
-                </div>
-            </div>
-
-            <!-- Overall CGPA Box -->
-            <div class="summary-box">
-                <h3>Total CGPA: <span id="res-cgpa">3.22</span></h3>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="action-buttons no-print">
-                <button class="btn btn-success" onclick="window.print()">🖨️ Print Result Sheet</button>
-                <button class="btn btn-secondary" onclick="showLayer('layer-login')">Back to Login</button>
-            </div>
+            <div class="stat-value">85<span class="out-of"> / 100</span></div>
+            <p class="stat-title">BDS 1201</p>
+            <div class="stat-footer">85% of displayed maximum</div>
+          </article>
         </div>
-    </div>
+      </section>
 
-    <!-- JavaScript Layer Control & Auth -->
-    <script>
-        function showLayer(layerId) {
-            var layers = document.querySelectorAll('.layer');
-            for (var i = 0; i < layers.length; i++) {
-                layers[i].classList.remove('active-layer');
-            }
-            document.getElementById(layerId).classList.add('active-layer');
-            window.scrollTo(0, 0);
-        }
+      <section class="section-block" id="results">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">MARKS AND ASSESSMENTS</p>
+            <h2>Course Results</h2>
+          </div>
+          <span class="pill">3 courses</span>
+        </div>
 
-        function handleLogin(event) {
-            event.preventDefault();
-            var inputId = document.getElementById('studentId').value.trim();
-            var inputPassword = document.getElementById('studentPassword').value.trim();
-            var inputTrimester = document.getElementById('trimester').value;
+        <div class="performance-card">
+          <div class="performance-heading">
+            <div>
+              <h3>Course performance overview</h3>
+              <p class="muted">Visual comparison of the displayed course totals</p>
+            </div>
+            <span class="legend"><span></span> Marks achieved</span>
+          </div>
 
-            if (inputId !== "0112620053" || inputPassword !== "abdullah.1234") {
-                alert("Invalid credentials! Use ID: 0112620053, Password: abdullah.1234");
-                return;
-            }
+          <div class="performance-row">
+            <div class="performance-label">
+              <span>English I</span>
+              <strong>78 / 100</strong>
+            </div>
+            <div class="marks-bar" role="img" aria-label="English I: 78 out of 100">
+              <div class="marks-fill" style="width:78%"></div>
+            </div>
+          </div>
 
-            if (!inputTrimester) {
-                alert("Please select a trimester.");
-                return;
-            }
+          <div class="performance-row">
+            <div class="performance-label">
+              <span>BDS 1201</span>
+              <strong>85 / 100</strong>
+            </div>
+            <div class="marks-bar" role="img" aria-label="BDS 1201: 85 out of 100">
+              <div class="marks-fill gold-fill" style="width:85%"></div>
+            </div>
+          </div>
 
-            document.getElementById('res-trimester').textContent = inputTrimester;
-            showLayer('layer-result');
-        }
-    </script>
+          <div class="performance-row">
+            <div class="performance-label">
+              <span>ICS</span>
+              <strong>82 / 100</strong>
+            </div>
+            <div class="marks-bar" role="img" aria-label="ICS: 82 out of 100">
+              <div class="marks-fill blue-fill" style="width:82%"></div>
+            </div>
+          </div>
+        </div>
+
+        <article class="course-card">
+          <div class="course-header">
+            <div class="course-title">
+              <div class="course-symbol">EN</div>
+              <div>
+                <span class="course-kicker">COURSE 01</span>
+                <h3>English I</h3>
+                <p class="muted">Assessment breakdown</p>
+              </div>
+            </div>
+            <div class="course-grade">
+              <span>Reported GPA</span>
+              <strong>3.00</strong>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Assessment</th><th>Marks Obtained</th><th>Maximum Marks</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Class Performance</td><td>16</td><td>20</td></tr>
+                <tr><td>Attendance</td><td>5</td><td>5</td></tr>
+                <tr><td>Assignment / Presentation</td><td>13.5</td><td>15</td></tr>
+                <tr><td>Midterm</td><td>18</td><td>30</td></tr>
+                <tr><td>Final</td><td>25</td><td>30</td></tr>
+              </tbody>
+              <tfoot>
+                <tr><th>Total</th><th>78</th><th>100</th></tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="course-footer">
+            <div class="course-total-text">Total marks <strong>78 / 100</strong></div>
+            <div class="mini-progress"><span style="width:78%"></span></div>
+            <span class="percentage">78%</span>
+          </div>
+        </article>
+
+        <article class="course-card">
+          <div class="course-header">
+            <div class="course-title">
+              <div class="course-symbol gold-symbol">BD</div>
+              <div>
+                <span class="course-kicker">COURSE 02</span>
+                <h3>BDS 1201</h3>
+                <p class="muted">Assessment breakdown</p>
+              </div>
+            </div>
+            <div class="course-grade">
+              <span>Reported GPA</span>
+              <strong>3.33</strong>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Assessment</th><th>Marks Obtained</th><th>Maximum Marks</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Class Performance</td><td>17</td><td>20</td></tr>
+                <tr><td>Attendance</td><td>5</td><td>5</td></tr>
+                <tr><td>Assignment / Presentation</td><td>13.5</td><td>15</td></tr>
+                <tr><td>Midterm</td><td>23</td><td>30</td></tr>
+                <tr><td>Final</td><td>26</td><td>30</td></tr>
+              </tbody>
+              <tfoot>
+                <tr><th>Total</th><th>85</th><th>100</th></tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="course-footer">
+            <div class="course-total-text">Total marks <strong>85 / 100</strong></div>
+            <div class="mini-progress"><span class="gold-progress" style="width:85%"></span></div>
+            <span class="percentage">85%</span>
+          </div>
+        </article>
+
+        <article class="course-card">
+          <div class="course-header">
+            <div class="course-title">
+              <div class="course-symbol blue-symbol">IC</div>
+              <div>
+                <span class="course-kicker">COURSE 03</span>
+                <h3>ICS</h3>
+                <p class="muted">Assessment breakdown</p>
+              </div>
+            </div>
+            <div class="course-grade">
+              <span>Reported GPA</span>
+              <strong>3.33</strong>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Assessment</th><th>Marks Obtained</th><th>Maximum Marks</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Class Performance</td><td>24</td><td>30</td></tr>
+                <tr><td>Attendance</td><td>5</td><td>5</td></tr>
+                <tr><td>Viva</td><td>7.5</td><td>Not specified</td></tr>
+                <tr><td>Assignment / Presentation</td><td>14</td><td>15</td></tr>
+                <tr><td>Midterm</td><td>17</td><td>20</td></tr>
+                <tr><td>Final</td><td>14</td><td>20</td></tr>
+              </tbody>
+              <tfoot>
+                <tr><th>Displayed Total</th><th>82</th><th>100</th></tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="course-footer">
+            <div class="course-total-text">Displayed total <strong>82 / 100</strong></div>
+            <div class="mini-progress"><span class="blue-progress" style="width:82%"></span></div>
+            <span class="percentage">82%</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="cgpa-panel" id="cgpa">
+        <div class="cgpa-icon">◈</div>
+        <div class="cgpa-copy">
+          <p class="eyebrow">OVERALL ACADEMIC PERFORMANCE</p>
+          <h2>Reported Cumulative GPA</h2>
+          <p>This is a demonstration value transcribed from the supplied screenshot, not a verified official result.</p>
+        </div>
+        <div class="cgpa-number">3.22<span> / 4.00</span></div>
+      </section>
+
+      <footer class="page-footer">
+        <div>
+          <strong>Student Academic Portal</strong>
+          <p>Independent demonstration project</p>
+        </div>
+        <p>Not affiliated with or issued by UIU.</p>
+      </footer>
+
+    </main>
+  </div>
+
 </body>
 </html>
